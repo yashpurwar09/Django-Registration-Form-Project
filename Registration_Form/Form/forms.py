@@ -1,10 +1,10 @@
 from django import forms
+from .models import registration_model
 
-class Registartion_form(forms.Form):
-    first_name=forms.CharField(max_length=200)
-    last_name=forms.CharField(max_length=200)
-    address=forms.CharField(max_length=500)
-    mobile_number=forms.CharField(max_length=10)
-    password=forms.PasswordInput()
+class Registartion_form(forms.ModelForm):
+    class Meta:
+        model=registration_model
+        fields='__all__'
+    
         
     
