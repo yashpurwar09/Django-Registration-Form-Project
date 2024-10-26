@@ -22,6 +22,16 @@ class Registartion_form(forms.ModelForm):
               'class':'form-control',  
             }),
         }
+    #mobile number validator
+    # def clean_mobile_number(self):
+    #     mobile_number=self.cleaned_data['mobile_number']
+    #     print(mobile_number)
+    #     if len(mobile_number)>10 or len(mobile_number<10):
+    #         print(mobile_number)
+    #         raise forms.ValidationError("Contact is not valid.")
+    #     return mobile_number
+    
+
     
         
     
