@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.core.exceptions import ValidationError
+from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 
 #Custom Validators
@@ -17,5 +18,6 @@ class registration_model(models.Model):
     first_name=models.CharField(max_length=200)
     last_name=models.CharField(max_length=200)
     address=models.CharField(max_length=200)
-    mobile_number=models.IntegerField(validators=[mobile_number_validator])
-    email=models.EmailField(validators=[emailDomainValidator])
+    mobile_number = PhoneNumberField()
+    #mobile_number=models.IntegerField(validators=[mobile_number_validator])
+    email=models.EmailField(unique=True,validators=[emailDomainValidator],error_messages={'unique':'Already Registered!'})

@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 # Create your views here.
 def mail(name,email):
     subject="Registration Successful"
-    message=f"Hi {name}, You are registered for"
+    message=f"Hi {name}, You are registered for Sabse Bada Gadha Competetion. I wish you all the best to win the competetion."
     send_mail(subject=subject,message=message,from_email='yashpurwar08@gmail.com',recipient_list=[email],fail_silently=True)
 
 def create_form(request):
@@ -18,6 +18,7 @@ def create_form(request):
             mail(name,email)
             return render(request, 'SubmitForm.html')
         else:
+            print(form)
             return render(request,'form.html',{'form':form})
     context={
         "form":Registartion_form(),

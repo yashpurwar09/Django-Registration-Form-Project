@@ -1,5 +1,6 @@
 from django import forms
 from .models import registration_model
+from phonenumber_field.widgets import RegionalPhoneNumberWidget
 
 class Registartion_form(forms.ModelForm):
     class Meta:
@@ -7,19 +8,20 @@ class Registartion_form(forms.ModelForm):
         fields='__all__'
         widgets={
             'first_name':forms.TextInput(attrs={
-              'class':'form-control',  
+              'class':'form-control border-success',  
             }),
             'last_name':forms.TextInput(attrs={
-              'class':'form-control',  
+              'class':'form-control border-success',  
             }),
             'address':forms.TextInput(attrs={
-              'class':'form-control',  
+              'class':'form-control border-success',  
             }),
-            'mobile_number':forms.NumberInput(attrs={
-              'class':'form-control',  
-            }),
+            ''''mobile_number':forms.NumberInput(attrs={
+              'class':'form-control border-success',  
+            }),'''
+            'mobile_number':RegionalPhoneNumberWidget(region="IN"),
             'email':forms.EmailInput(attrs={
-              'class':'form-control',  
+              'class':'form-control border-success',  
             }),
         }
     #mobile number validator
