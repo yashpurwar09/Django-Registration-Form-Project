@@ -18,6 +18,6 @@ class registration_model(models.Model):
     first_name=models.CharField(max_length=200)
     last_name=models.CharField(max_length=200)
     address=models.CharField(max_length=200)
-    mobile_number = PhoneNumberField()
-    #mobile_number=models.IntegerField(validators=[mobile_number_validator])
+    #mobile_number = PhoneNumberField()
+    mobile_number=models.IntegerField(validators=[mobile_number_validator])
     email=models.EmailField(unique=True,validators=[emailDomainValidator],error_messages={'unique':'Already Registered!'})

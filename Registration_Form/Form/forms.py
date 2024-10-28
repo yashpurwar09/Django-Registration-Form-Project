@@ -16,14 +16,18 @@ class Registartion_form(forms.ModelForm):
             'address':forms.TextInput(attrs={
               'class':'form-control border-success',  
             }),
-            ''''mobile_number':forms.NumberInput(attrs={
+            'mobile_number':forms.NumberInput(attrs={
               'class':'form-control border-success',  
-            }),'''
-            'mobile_number':RegionalPhoneNumberWidget(region="IN"),
+            }),
+            #'mobile_number':RegionalPhoneNumberWidget(region="IN"),
             'email':forms.EmailInput(attrs={
               'class':'form-control border-success',  
             }),
         }
+
+class OtpForm(forms.Form):
+    otp=forms.IntegerField()
+
     #mobile number validator
     # def clean_mobile_number(self):
     #     mobile_number=self.cleaned_data['mobile_number']
